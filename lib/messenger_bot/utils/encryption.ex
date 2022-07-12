@@ -30,8 +30,7 @@ defmodule MessengerBot.Util.Encryption do
   end
 
   defp calculate_sha(alg, secret, body) do
-    alg
-    |> Crypto.hmac("#{secret}", "#{body}")
+    Crypto.mac(:hmac, alg, "#{secret}", "#{body}")
     |> Base.encode16()
     |> String.downcase()
   end

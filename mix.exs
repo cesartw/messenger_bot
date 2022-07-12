@@ -43,7 +43,8 @@ defmodule MessengerBot.Mixfile do
       {:credo, "~> 1.0", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0.0-rc.4", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.19.1", only: :dev},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:plug_crypto, "~> 1.2"}
     ]
   end
 
