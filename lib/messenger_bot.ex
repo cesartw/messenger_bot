@@ -1013,11 +1013,13 @@ defmodule MessengerBot do
       {:ok, %{"success" => true}}
 
   """
-  @spec subscribe_to_page_webhooks(page_ref(), tx_id() | nil) :: res()
-  def subscribe_to_page_webhooks({app_id, page_id}, tx_id \\ nil) do
+  @spec subscribe_to_page_webhooks(page_ref(), list(), tx_id() | nil) :: res()
+  def subscribe_to_page_webhooks({app_id, page_id}, fields, tx_id \\ nil) do
     Client.rpost(
       "/#{page_id}/subscribed_apps",
-      %{},
+      %{
+        subscribed_fields: fields
+      },
       {app_id, page_id, :mb_subscribe_to_page_webhooks, tx_id}
     )
   end
