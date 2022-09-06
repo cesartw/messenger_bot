@@ -6,6 +6,7 @@ defmodule MessengerBot.Client.Base do
   ############################################################################
 
   use Tesla, only: ~w(get post delete)a
+  adapter Tesla.Adapter.Hackney, [ssl_options: [{:versions, [:'tlsv1.2']}]]
 
   alias MessengerBot.Config
   alias MessengerBot.Util.JSON
